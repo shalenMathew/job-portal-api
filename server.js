@@ -5,9 +5,9 @@ const app = express()
 
 app.use(express.json())
 
-const mongoURI = "mongodb+srv://shalenmj:zItOA9aPR7V2I7FY@job-portal-db.bvhko19.mongodb.net/?retryWrites=true&w=majority&appName=job-portal-db"
+const MONGO_URI = "mongodb+srv://shalenmj:zItOA9aPR7V2I7FY@job-portal-db.bvhko19.mongodb.net/?retryWrites=true&w=majority&appName=job-portal-db"
 
-mongoose.connect(mongoURI, {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
