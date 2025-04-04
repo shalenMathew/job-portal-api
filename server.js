@@ -53,10 +53,29 @@ app.post("/jobs", async (req, res) => {
 
         // Return the created job
         res.status(201).json(newJob);
+        
     } catch (err) {
         res.status(500).json({ message: "Error creating job", error: err });
     }
 });
+
+
+// fetching jobs by id
+app.get("/jobs/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const job = await Job.findById(id);
+
+        if (!job) {
+            return res.status(404).json({ message: "Job not found" });
+        }
+
+        res.status(200).json(job);
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching job", error: err });
+    }
+});
+
 
 // Update Job Route (PUT)
 app.put("/jobs/:id", async (req, res) => {
